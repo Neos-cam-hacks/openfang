@@ -1,9 +1,8 @@
-# Introduction and requirements
+# Installation on SXJ02ZM
 <img src="/doc/SXJ02ZM/img/xiaomi_mijia_2018.jpg" width="300">
 
-The Xiaomi Mijia 1080p v3 model is the snow-white model that was released in 2018, and has an Ingenic T20L SOC with 64MB of RAM.
-Unfortunately there is no known firmware exploit that allows us to easily edit the firmware to get ssh access to the camera.
-In order to install OpenFang on the camera, we need to flash a custom bootloader to the camera using a CH341A programmer.
+The Xiaomi Mijia 1080p v3 is the snow-white model that was released in 2018, and has an Ingenic T20L SoC with 64MB of RAM.
+Unfortunately there is no known exploit for enabling ssh access, so in order to install openfang on the camera we need to flash a custom bootloader to the flash chip.
 
 
 ## Requirements
