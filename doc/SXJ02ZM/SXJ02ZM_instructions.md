@@ -63,7 +63,9 @@ You will need:
 
 
 ## Flashing under macOS/Linux
-- First, use CH341Prog to erase the SPI flash: `./ch341prog -e`
+- First, use CH341Prog to back up the original bootloader: `./ch341prog -r xiaomi-bootloader.bin`
+- Save this file somewhere safe; it is the only way you can revert your camera's firmware back to stock!
+- Use CH341Prog to erase the SPI flash: `./ch341prog -e`
 - Use CH341Prog to write the custom bootloader to the SPI flash: `./ch341prog -w u-boot-lzo-with-spl_t20_64M.bin`
 - Caution: flash the 64M binary file!
 
@@ -77,9 +79,7 @@ You will need:
 Attention: it's highly recommended NOT TO IGNORE THIS STEP, because this is the only way you can revert your camera's firmware back to stock!
 
 - Click on "Read".
-
 - When reading is completed, click on "Verify" to verify that reading result matches content on flash.
-
 - Click on "Save" and save your backup.
 
 ### Flashing
@@ -100,7 +100,7 @@ Attention: it's highly recommended NOT TO IGNORE THIS STEP, because this is the 
 
 
 
-# 4. Preparing the SD-Card (Windows/macOS/Linux)
+# 4. Preparing the SD card (Windows/macOS/Linux)
 ## Flash rootfs using Windows
 - Download and install any partitioning software. My favourite freeware for this is Active Partition Manager.
 - In Active Partition Manager, erase all partitions of the SD card.
