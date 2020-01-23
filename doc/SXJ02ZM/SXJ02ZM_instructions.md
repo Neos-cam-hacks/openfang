@@ -44,7 +44,7 @@ You will need:
 
 
 ## Connecting the SPI flash to the programmer
-- Put the programmer clip tight on the SOP8 package, having in mind that the red cable is always for pin 1. Make sure it sits tight on the SOP8 package.
+- Put the programmer clip tight on the SOP8 package, with the red wire going to pin 1. Make sure it sits tight on the SOP8 package. You may have to wiggle it around to get a solid connection.
 <img src="/doc/SXJ02ZM/img/clamponsop.jpg" width="300">
 <img src="/doc/SXJ02ZM/img/clamponsop2.jpg" width="300">
 
@@ -55,7 +55,7 @@ You will need:
 
 
 
-# 3. Flashing the SPI flash (Windows/macOS/Linux)
+# 3. Flashing the bootloader (Windows/macOS/Linux)
 ## Downloading the needed files
 - Download the latest release package from [OpenFang/releases](https://github.com/anmaped/openfang/releases) and extract it somewhere.
 - Download the proper flashing software from the tools directory. It is recommended to flash the SPI flash under Linux/macOS as I never had success in flashing it with Windows! Feel free to report otherwise.
@@ -63,11 +63,12 @@ You will need:
 
 
 ## Flashing under macOS/Linux
-- First, use CH341Prog to back up the original bootloader: `./ch341prog -r xiaomi-bootloader.bin`
+- First, use CH341Prog to back up the original bootloader: `./ch341prog -r xiaomi-bootloader.bin` (it will take a few minutes).
 - Save this file somewhere safe; it is the only way you can revert your camera's firmware back to stock!
 - Use CH341Prog to erase the SPI flash: `./ch341prog -e`
 - Use CH341Prog to write the custom bootloader to the SPI flash: `./ch341prog -w u-boot-lzo-with-spl_t20_64M.bin`
-- Caution: flash the 64M binary file!
+- Caution: flash the binary file ending in `_64M`, not `_128M`!
+- Don't forget to resolder the VCC pin.
 
 
 ## Flashing under Windows
@@ -97,6 +98,8 @@ Attention: it's highly recommended NOT TO IGNORE THIS STEP, because this is the 
 
 - After the flashing, click on read at the top icons and see if something was written to the flash.
 <img src="/doc/SXJ02ZM/img/windows_flasher_7.png" width="300">
+
+- Don't forget to resolder the VCC pin.
 
 
 
